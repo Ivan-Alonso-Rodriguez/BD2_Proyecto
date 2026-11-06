@@ -46,6 +46,8 @@ En el espacio local donde se desarrolló esta entrega, `.venv` y el catálogo ya
 
 Las imágenes, títulos y categorías son reales. **Precios y ubicaciones de tiendas son sintéticos**, reproducibles con semilla 2026, porque el dataset no contiene esos campos. Las descripciones concatenan atributos originales y etiquetas de categoría en español. La interfaz lo indica; no representa inventario comercial. Las teselas del mapa y las fuentes web requieren internet; los índices, las imágenes y la API residen localmente.
 
+Las tiendas sintéticas se distribuyen únicamente en sectores interiores de Lima, alejados de la costa, mediante `data/store_locations.py`. Para corregir una colección antigua, detén la API y ejecuta `python tools/repair_store_locations.py`. La utilidad conserva una copia de seguridad en `data/database/.location-backups`, modifica solo lon/lat y reconstruye el R-Tree manteniendo los RID, precios, imágenes y demás índices.
+
 ## Mapa con API key de Google Maps
 
 1. En tu proyecto de Google Cloud, habilita Maps JavaScript API, configura la facturación y crea una API key siguiendo la [guía oficial](https://developers.google.com/maps/documentation/javascript/get-api-key).
